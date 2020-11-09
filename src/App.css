@@ -304,9 +304,6 @@
     min-width: 400px;
   }
 
-  .discord_user{
-    border: 1px solid red;
-  }
 }
 
 @keyframes jiggleSE {
