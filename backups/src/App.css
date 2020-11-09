@@ -1,0 +1,352 @@
+.appPad{
+  padding: 60px 20px 0 20px;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+#Navbar{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.navbar_link{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 25px;
+  margin: 0 10px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  transition: all .25s;
+}
+
+.navbar_link:hover{
+  background-color: #ffffff0e;
+}
+
+.navbar_link.active {
+  font-size: 30px;
+  border-bottom: 5px solid white;
+}
+
+.banner, .home_logo{
+  margin-top: 200px;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.banner > img{
+  width: 600px;
+  position: absolute;
+  margin: auto;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.home_logo img{
+  width: 400px;
+  position: absolute;
+  margin: auto;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.discordButton{
+  --jiggle-skew: 2px;
+  background-color: #7289DA;
+  border-radius: 50%;
+  position: fixed;
+  --spacing: 12px;
+  bottom: var(--spacing);
+  right: var(--spacing);
+  --size: 66px;
+  width: var(--size);
+  height: var(--size);
+}
+
+.discordButton img{
+  position:absolute;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  top: 12%;
+  width: 88%;
+}
+
+.discordButton:hover{
+  animation: jiggleLink .2s 1 ease-in-out;
+}
+
+.heading{
+  width: 100%;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 40px;
+}
+
+#notFound, #construction{
+  position:absolute;
+  top: 20%;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  font-size: 30px;
+}
+
+
+#notFound > img{
+  width: 200px;
+}
+
+#construction > img{
+  width: 300px;
+}
+
+#notFound > .title, #construction > .title{
+  font-size: 110%;
+}
+
+.playlistFlow{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 20px;
+}
+
+.playlist_icon{
+  --width: 250px;
+  --border-radius: 20px;
+  position: relative;
+  width: var(--width);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transform: scale(1,1);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0);
+  transition: all .1s ease-in-out;
+}
+
+.playlist_icon:hover{
+  transform: scale(1.015,1.015);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.65);
+}
+
+.albumLoader{
+  height: var(--width);
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  background: url("./img/logo/wireframe.png") no-repeat;
+  background-position: center center;
+  background-size: 160px;
+  border: 2px solid black;
+  border-radius: var(--border-radius);
+}
+
+.albumGrid{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+
+.albumGrid img:nth-child(1){
+  border-radius: var(--border-radius) 0 0 0;
+}
+
+.albumGrid img:nth-child(2){
+  border-radius: 0 var(--border-radius) 0 0;
+}
+
+.albumGrid img:nth-child(3){
+  border-radius: 0 0 0 var(--border-radius);
+}
+
+.albumGrid img:nth-child(4){
+  border-radius: 0 0 var(--border-radius) 0;
+}
+
+.albumGrid img{
+  width: 100%;
+}
+
+.dateIndicator{
+  position: absolute;
+  height: 50px;
+  --left-pad: 14px;
+  width: calc(var(--width) - var(--left-pad));
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background-color: rgba(0, 0, 0, 0.589);
+  bottom: 0;
+  vertical-align: bottom;
+  line-height: 50px;
+  padding-left: var(--left-pad);
+}
+
+.track{
+  --track-height: 90px;
+  --track-br: 10px;
+  margin: 10px 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  height: var(--track-height);
+  color: white;
+  background-color: rgba(17, 17, 17, 0.9);
+  border-radius: var(--track-br);
+}
+
+.album_art{
+  flex-shrink: 0;
+  background-size: var(--track-height);
+  height: var(--track-height);
+  width: var(--track-height);
+  border-radius: var(--track-br) 0 0 var(--track-br);
+}
+
+.track_info{
+  padding: 5px 10px;
+}
+
+.track_name, .artist_name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
+
+.loader_img{
+  --loader-size: 200px;
+  position: fixed;
+  height: var(--loader-size);
+  width: var(--loader-size);
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(var(--loader-size) * -.5), calc(var(--loader-size) * -1));
+}
+
+.loader_img > img{
+  position: absolute;
+  height: var(--loader-size);
+  width: var(--loader-size);
+}
+
+.loader_img .logoA{
+  animation: 1.5s jiggleSE infinite;
+}
+
+.loader_img .logoF{
+  animation: 1.5s jiggleSW infinite;
+}
+
+.discord_user{
+  --size: 30px;
+  margin: 5px 0;
+  display: flex;
+}
+
+.discord_user > .avatar{
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: var(--size);
+  height: var(--size);
+  width: var(--size)
+}
+
+.discord_user > .name{
+  line-height: var(--size);
+  font-size: 17px;
+  padding-left: 5px;
+}
+
+.vote_button{
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0 20px;
+  font-size: 30px;
+}
+
+.vote_button > div{
+  display: flex;
+  flex-direction: row;
+}
+
+.vote_button > div > p{
+  margin: 0;
+  line-height: var(--track-height);
+  color: white;
+  transition: color .15s ease-in-out;
+}
+
+.vote_button > div.active > p.icon{
+  color: #ffd57e;
+}
+
+.vote_button p.vote_count {
+  font-size: 15px;
+} 
+
+@media only screen and (max-width : 400px) {
+  .track{
+    min-width: 400px;
+  }
+
+  .discord_user{
+    border: 1px solid red;
+  }
+}
+
+
+@keyframes jiggleSE {
+  from{
+    bottom: 0;
+    left: 0;
+  }
+  50%{
+    bottom: -15px;
+    left: -5px;
+  }
+  to{
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@keyframes jiggleSW {
+  from{
+    bottom: 0;
+    right: 0;
+  }
+  50%{
+    bottom: -15px;
+    right: -5px;
+  }
+  to{
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@keyframes jiggleLink {
+  0%, 100%{
+    transform: translate(0px, 0px);
+  }
+  25%{
+    transform: translate(var(--jiggle-skew), 0);
+  }
+  75%{
+    transform: translate(calc(var(--jiggle-skew)*-1), 0);
+  }
+}
