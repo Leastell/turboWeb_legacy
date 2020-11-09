@@ -1,4 +1,4 @@
-<img src="https://github.com/Libruh/turboWeb/blob/master/src/img/logo/banner.png?raw=true" />
+<img src="https://raw.githubusercontent.com/Libruh/turboWeb/4007db2db245ec0da37b5df405427990e219d44e/src/img/logo/bannerblob.svg" />
 
 ## Available Scripts
 
