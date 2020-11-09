@@ -42,7 +42,8 @@
 }
 
 .banner > img{
-  width: 600px;
+  width: 100%;
+  max-width: 550px;
   position: absolute;
   margin: auto;
   left:0;
@@ -60,8 +61,6 @@
   margin-left:auto;
   margin-right:auto;
 }
-
-/* 1 */
 
 .discordButton{
   --jiggle-skew: 2px;
@@ -189,7 +188,7 @@
   position: absolute;
   height: 50px;
   --left-pad: 14px;
-  /* width: calc(var(--width) - var(--left-pad)); */
+  width: calc(var(--width) - var(--left-pad));
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   background-color: rgba(0, 0, 0, 0.589);
   bottom: 0;
@@ -238,8 +237,6 @@
   left: 50%;
   transform: translate(calc(var(--loader-size) * -.5), calc(var(--loader-size) * -1));
 }
-
-/* ABOVE IS VALID */
 
 .loader_img > img{
   position: absolute;
@@ -301,8 +298,6 @@
 .vote_button p.vote_count {
   font-size: 15px;
 } 
-
-/* 2-2 */
 
 @media only screen and (max-width : 400px) {
   .track{
