@@ -1,3 +1,5 @@
+<img src="https://github.com/Libruh/turboWeb/blob/master/src/img/logo/banner.png?raw=true" />
+
 ## Available Scripts
 
 In the project directory, you can run:
