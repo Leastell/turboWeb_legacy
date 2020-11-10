@@ -3,7 +3,7 @@ import { getPlaylist, changeVote } from '../scripts/API'
 import Track from './track'
 import Loader from './loader'
 
-class Playlist extends Component {
+class datePlaylist extends Component {
     state = { 
         isLoading: true,
         playlistDate : '',
@@ -79,4 +79,4 @@ class Playlist extends Component {
         }
 }
  
-export default Playlist;
+export default datePlaylist;
