@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import datePlaylist from './components/datePlaylist'
-import userDisplay from './components/userDisplay'
+import userPage from './components/userPage'
 import DiscordButton from './components/discordbutton'
 
 // Pages
@@ -19,7 +19,7 @@ function App() {
       <div className="appPad">
       <Switch>
         <Route exact path="/music" component={MusicPage}/>
-        <Route path="/music/user/:userID" component={userDisplay}/>
+        <Route path="/music/user/:userID" component={userPage}/>
         <Route path="/music/:playlistDate" component={datePlaylist}/>
         <Route exact path="/home" component={HomePage}/>
         <Route exact path="/events" component={ConstructionPage}/>

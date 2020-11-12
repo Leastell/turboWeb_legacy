@@ -228,12 +228,27 @@
   max-width: 40vw;
 }
 
-.loader_img{
+.loader{
   --loader-size: 200px;
+  margin-top: 50vh;
   position: fixed;
+  width: 100%;
+  height: 10px;
+}
+
+.loader_text{
+  font-size: 105%;
+  position: relative;
+  text-align: center;
+  margin: auto;
+  margin-top: calc(-10px - var(--loader-size));
+  width: var(--loader-size);
+}
+
+.loader_img{
+  position: relative;
   height: var(--loader-size);
   width: var(--loader-size);
-  top: 50%;
   left: 50%;
   transform: translate(calc(var(--loader-size) * -.5), calc(var(--loader-size) * -1));
 }
@@ -272,6 +287,10 @@
   padding-left: 5px;
 }
 
+.discord_user > .name:hover{
+  text-decoration: underline
+}
+
 .vote_button{
   cursor: pointer;
   margin-left: auto;
@@ -305,10 +324,61 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width : 400px) {
-  .track{
-    min-width: 400px;
+.user_panel{
+  margin: 30px auto;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.user_icon{
+  font-size: 37px;
+  --size: 150px;
+  width: var(--size);
+  margin-bottom: 10px;
+}
+
+.user_icon > .avatar{
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: var(--size);
+  height: var(--size);
+  width: var(--size);
+}
+
+.user_icon > .name{
+  text-align: center;
+  width: var(--size);
+}
+
+.user_icon > .name > .discriminator{
+  font-size: 25px;
+  color: grey;
+}
+
+.stat{
+  font-size: 32px;
+  margin: 10px 20px;
+}
+
+.stat > .title{
+  text-align: center;
+  color: rgb(138, 138, 138);
+}
+
+.stat > .data{
+  text-align: center;
+}
+
+@media only screen and (max-width : 750px) {
+
+  .user-icon{
+    border: 10px solid red;
   }
+
 
 }
 

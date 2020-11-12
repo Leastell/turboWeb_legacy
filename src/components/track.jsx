@@ -21,11 +21,12 @@ class trackView extends Component {
                 { track.contributor ?
                 <Link to={"/music/user/"+track.contributor.user.id} className="no_link">
                     <DiscordUser userObj={track.contributor} />
-                </Link> : <div></div> }
+                </Link> : <></> }
             </div>
+            { this.props.storageFunction ? 
             <div className='vote_button'>
                 <VoteButton trackID={track.id} votes={track.votes} voteStatus={this.props.voteStatus} storageFunction = {this.props.storageFunction}/>
-            </div>
+            </div> : <></> }
         </div>);
     }
 }
