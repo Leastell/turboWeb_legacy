@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PlaylistIcon from '../components/playlisticon';
 import Loader from '../components/loader'
 import { getPlaylists } from '../scripts/API'
+import DiscordButton from '../components/discordbutton'
 
 class MusicPage extends Component {
     state = { 
@@ -19,6 +20,8 @@ class MusicPage extends Component {
             }
         }
 
+        this.playlistIcons.reverse()
+
         this.setState({
             isLoading: false
         })
@@ -30,11 +33,12 @@ class MusicPage extends Component {
 
         return ( 
         <div>
-            <div className="heading">Playlists</div>
+            <div className="heading">Playlist Archive</div>
             {this.state.isLoading ? <Loader /> : 
             <div className="playlistFlow">
                 {this.playlistIcons}
             </div>}
+            <DiscordButton />
         </div> 
         );
     }

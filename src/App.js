@@ -28,7 +28,6 @@ function App() {
         <Redirect to='/404'></Redirect>
       </Switch>
       </div>
-      <DiscordButton />
     </Router>
   );
 }

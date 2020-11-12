@@ -28,6 +28,14 @@ class PlaylistIcon extends Component {
         let endDate = new Date(startDate)
         endDate = endDate.add(6).day()
 
+        var now = new Date();
+
+        let current = false
+
+        if(endDate >= now){
+            current = true
+        }
+
         const linkTarget = "/music/"+this.props.playlistDate
 
         return (
@@ -39,7 +47,14 @@ class PlaylistIcon extends Component {
                         return <img src = {image} alt = "album art" key={startDate.toString("MMM dd, yyyy")+"art"+index}/>
                     }) }
                 </div>
-                <div className="dateIndicator">{startDate.toString("MMM dd, yyyy")} - {endDate.toString("MMM dd, yyyy")}</div>
+                {current ? 
+                <div className="dateIndicator">
+                    Current
+                </div>: 
+                <div className="dateIndicator">
+                    {startDate.toString("MMM dd")} - {endDate.toString("MMM dd")}
+                </div>
+                }
             </Link>
          );
     }

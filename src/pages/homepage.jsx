@@ -3,6 +3,7 @@ import logoT from '../img/logo/logoT.png'
 import logoA from '../img/logo/logoA.png'
 import logoF from '../img/logo/logoF.png'
 import banner from '../img/logo/banner.png'
+import DiscordButton from '../components/discordbutton'
 
 
 class HomePage extends Component {
@@ -22,6 +23,7 @@ class HomePage extends Component {
         return ( 
             <div className="banner">
                 <img src={banner} alt=''/>
+                <DiscordButton />
             </div>
         );
     }
