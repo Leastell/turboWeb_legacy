@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
-import Playlist from './components/playlist'
+import datePlaylist from './components/datePlaylist'
+import userDisplay from './components/userDisplay'
 import DiscordButton from './components/discordbutton'
 
 // Pages
@@ -17,10 +18,11 @@ function App() {
       <Navbar />
       <div className="appPad">
       <Switch>
-        <Route exact path="/Music" component={MusicPage}/>
-        <Route path="/Music/:playlistDate" component={Playlist}/>
-        <Route exact path="/Home" component={HomePage}/>
-        <Route exact path="/Events" component={ConstructionPage}/>
+        <Route exact path="/music" component={MusicPage}/>
+        <Route path="/music/user/:userID" component={userDisplay}/>
+        <Route path="/music/:playlistDate" component={datePlaylist}/>
+        <Route exact path="/home" component={HomePage}/>
+        <Route exact path="/events" component={ConstructionPage}/>
         <Route exact path="/404" component={badRoute}/>
         <Redirect exact from="/" to='/Home'></Redirect>
         <Redirect to='/404'></Redirect>

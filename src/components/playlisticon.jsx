@@ -20,7 +20,6 @@ class PlaylistIcon extends Component {
                 images.push(element.url)
             }
         }
-
         this.setState({ images, isLoading: false })
     }
 
@@ -29,17 +28,17 @@ class PlaylistIcon extends Component {
         let endDate = new Date(startDate)
         endDate = endDate.add(6).day()
 
-        const linkTarget = "/Music/"+this.props.playlistDate
+        const linkTarget = "/music/"+this.props.playlistDate
 
         return (
+            this.state.isLoading ? <></> :
             <Link to={linkTarget} className="playlist_icon">
-                {this.state.isLoading ? <div className="albumLoader"></div> :
                 <div className="albumGrid">
                     {this.state.images.map((image, index) => {
                         index = index+1;
                         return <img src = {image} alt = "album art" key={startDate.toString("MMM dd, yyyy")+"art"+index}/>
                     }) }
-                </div>}
+                </div>
                 <div className="dateIndicator">{startDate.toString("MMM dd, yyyy")} - {endDate.toString("MMM dd, yyyy")}</div>
             </Link>
          );

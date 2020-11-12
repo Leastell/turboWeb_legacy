@@ -8,30 +8,32 @@ class MusicPage extends Component {
         isLoading: true, 
     }
 
+    playlistIcons = []
+
     async componentDidMount(){
         const fetchedPlaylists = await getPlaylists()
-        let playlists = []
 
         for (const index in fetchedPlaylists) {
             if (fetchedPlaylists.hasOwnProperty(index)) {
-                playlists.push(fetchedPlaylists[index])
+                this.playlistIcons.push(<PlaylistIcon key={fetchedPlaylists[index]} playlistDate={fetchedPlaylists[index]}/>)
             }
         }
 
         this.setState({
-            isLoading: false,
-            playlists: playlists
+            isLoading: false
         })
 
     }
 
+
     render() {
+
         return ( 
         <div>
             <div className="heading">Playlists</div>
             {this.state.isLoading ? <Loader /> : 
             <div className="playlistFlow">
-                {this.state.playlists.map(playlist => <PlaylistIcon key={playlist} playlistDate={playlist} />) }
+                {this.playlistIcons}
             </div>}
         </div> 
         );
