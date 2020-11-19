@@ -12,9 +12,13 @@ class trackView extends Component {
             backgroundImage: 'url('+track.album.images[1].url+')'
         }
 
+        console.log(track);
 
         return (<div className="track" >
             <div className='album_art' style={ albumArtStyle }></div>
+            <a href={"https://open.spotify.com/track/"+track.id}>
+                <div className="spotify_overlay"></div>
+            </a>
             <div className="track_info">
                 { <div className='track_name'> {track.name} </div> }
                 { <div className='artist_name'> {track.album.artists[0].name} </div> }

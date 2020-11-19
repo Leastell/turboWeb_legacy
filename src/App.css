@@ -217,6 +217,22 @@
   border-radius: var(--track-br) 0 0 var(--track-br);
 }
 
+.spotify_overlay{
+  background-image:url("img/misc/spotify-overlay.png");
+  background-size: var(--track-height);
+  height: var(--track-height);
+  width: var(--track-height);
+  --border-overlay: calc( var(--track-br) - 1px );
+  border-radius: var(--border-overlay) 0 0 var(--border-overlay);
+  margin-left: calc(  0px - var(--track-height) );
+  opacity: 0;
+}
+
+.spotify_overlay:hover{
+  cursor: pointer;
+  opacity: 100;
+}
+
 .track_info{
   padding: 5px 10px;
 }
