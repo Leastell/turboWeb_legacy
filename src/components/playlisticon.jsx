@@ -25,8 +25,9 @@ class PlaylistIcon extends Component {
 
     render() {
         let startDate = new Date(this.props.playlistDate);
+        startDate = startDate.add(1).day()
         let endDate = new Date(startDate)
-        endDate = endDate.add(6).day()
+        endDate = endDate.add(7).day()
 
         var now = new Date();
 

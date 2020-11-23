@@ -65,6 +65,7 @@ class datePlaylist extends Component {
 
     render() {
         let startDate = new Date(this.props.match.params.playlistDate);
+        startDate = startDate.add(1).day()
         let endDate = new Date(startDate)
         endDate = endDate.add(6).day()
 
