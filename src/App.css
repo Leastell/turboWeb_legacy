@@ -34,6 +34,18 @@
   border-bottom: 5px solid white;
 }
 
+.litebanner{
+  margin: 30px auto;
+  width: 90%;
+  max-width: 400px;
+  padding: 10px;
+  text-align: center;
+}
+
+.litebanner > img{
+  width: 100%;
+}
+
 .banner, .home_logo{
   margin-top: 200px;
   width: 100%;

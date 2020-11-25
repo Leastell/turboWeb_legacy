@@ -1,0 +1,77 @@
+.ssForm{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ssForm > label{
+    margin: 10px 0 4px 0;
+}
+
+.ssForm input, textarea, select, .submit{
+    background-color: rgba(26, 26, 26, 0.336);
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 5px;
+    color: white;
+    font-size: 98%;
+    padding: 5px;
+}
+
+option{
+    border: 10px solid red;
+    background-color: rgba(26, 26, 26);
+    color: white;
+}
+
+.address{
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 5px;
+    padding: 10px;
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: 50px auto;
+}
+
+.address label{
+    text-align: right;
+}
+
+.address > .chunk{
+    display: grid;
+    grid-template-columns: 50px auto 30px auto;
+    grid-gap: 8px;
+    width: 100%;
+    grid-column: 1 / span 2;
+}
+
+.ssForm > .chunk{
+    margin: 20px 0 4px 0;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, min-content auto);
+}
+
+.ssForm > .chunk > label{
+    white-space:nowrap;
+}
+
+label{
+    padding-top: 5px;
+}
+
+.submit{
+    width: 200px;
+    margin: 20px auto;
+    padding-bottom: 8px;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+.submit:hover{
+    background-color: rgb(230, 230, 230);
+    color: black;
+}
+
+
