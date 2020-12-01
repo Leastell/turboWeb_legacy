@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {submitSanta} from '../scripts/API'
 import '../specialStyles/santa.css';
 
 class SecretSanta extends Component {
@@ -12,6 +13,7 @@ class SecretSanta extends Component {
 
         let formResult = {
             name: '',
+            email: '',
             message: '',
             shirtsize: '',
             snack: '',
@@ -24,30 +26,61 @@ class SecretSanta extends Component {
             }
         }
 
-        formResult['name'] = document.forms["ssForm"]["name"].value;
-        formResult['message'] = document.forms["ssForm"]["message"].value;
-        formResult['shirtsize'] = document.forms["ssForm"]["shirtsize"].value;
-        formResult['snack'] = document.forms["ssForm"]["snack"].value;
-        formResult['color'] = document.forms["ssForm"]["color"].value;
-        formResult['address']['state'] = document.forms["ssForm"]["state"].value;
-        formResult['address']['city'] = document.forms["ssForm"]["city"].value;
-        formResult['address']['street'] = document.forms["ssForm"]["street"].value;
-        formResult['address']['zip'] = document.forms["ssForm"]["zip"].value;
+        let filled = true
 
-        console.log(formResult);
-        this.setState({submitted: formResult})
+        const form = document.forms["ssForm"].elements
+
+        for (const key in form) {
+            if (form.hasOwnProperty(key)) {
+                const element = form[key];
+                if (element.value===''&&element.name!=='submit'){
+                    filled = false
+                    element.classList.add("notfilled")
+                }
+                else{
+                    element.classList.remove("notfilled")
+                }
+            }
+        }
+
+        if (filled){
+            formResult['name'] = document.forms["ssForm"]["name"].value;
+            formResult['email'] = document.forms["ssForm"]["name"].value;
+            formResult['message'] = document.forms["ssForm"]["message"].value;
+            formResult['shirtsize'] = document.forms["ssForm"]["shirtsize"].value;
+            formResult['snack'] = document.forms["ssForm"]["snack"].value;
+            formResult['color'] = document.forms["ssForm"]["color"].value;
+            formResult['address']['state'] = document.forms["ssForm"]["state"].value;
+            formResult['address']['city'] = document.forms["ssForm"]["city"].value;
+            formResult['address']['street'] = document.forms["ssForm"]["street"].value;
+            formResult['address']['zip'] = document.forms["ssForm"]["zip"].value;
+
+            
+            const response = await submitSanta(formResult)
+            console.log(response);
+
+            this.setState({submitted: formResult})
+        }
+        else{
+            document.getElementsByClassName('unfilledWarning')[0].style.display = "block";
+        }
     }
 
     render() {
+       
         return (
-            this.state.submitted ? <div>Submitted</div> :
+            this.state.submitted ? <div className="submitted">Submitted!</div> :
             <div>
                 <div className="heading">Secret Santa Sign-up</div>
                 <form className="ssForm" name="ssForm">
                     <label>
                         Name:
                     </label>
-                    <input type="text" name="name" />
+                    <input type="text" name="name"/>
+                    <label>
+                        Email:
+                    </label>
+                    <input type="text" name="email"/>
                     <label>
                         Message / Gift Preferences
                     </label>
@@ -55,8 +88,8 @@ class SecretSanta extends Component {
                     <label>
                         Shirt Size
                     </label>
-                    <select name="shirtsize">
-                        <option value="" selected disabled hidden>-- Please Choose a Size --</option>
+                    <select name="shirtsize" defaultValue="">
+                        <option value="" disabled hidden>-- Please Choose a Size --</option>
                         <option value="XS">XS - Extra Small</option>
                         <option value="S">S - Small</option>
                         <option value="M">M - Medium</option>
@@ -83,7 +116,7 @@ class SecretSanta extends Component {
                         <label>
                             State
                         </label>
-                        <select name="state">
+                        <select name="state" defaultValue="TX">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -127,7 +160,7 @@ class SecretSanta extends Component {
                             <option value="SC">South Carolina</option>
                             <option value="SD">South Dakota</option>
                             <option value="TN">Tennessee</option>
-                            <option value="TX" selected>Texas</option>
+                            <option value="TX">Texas</option>
                             <option value="UT">Utah</option>
                             <option value="VT">Vermont</option>
                             <option value="VA">Virginia</option>
@@ -146,7 +179,7 @@ class SecretSanta extends Component {
                             <label>
                                 ZIP
                             </label>
-                            <input type="text" maxlength="5" name="zip" />    
+                            <input type="text" maxLength="5" name="zip" />    
                         </div>
 
                         <label>
@@ -155,7 +188,11 @@ class SecretSanta extends Component {
                         <input type="text" name="street" />
                     </div>
 
-                <button className="submit" onClick={this.submit}>
+                <div className="unfilledWarning">
+                    Make sure you've filled out all the fields!
+                </div>
+
+                <button className="submit" name="submit" onClick={this.submit}>
                     Submit
                 </button>
 

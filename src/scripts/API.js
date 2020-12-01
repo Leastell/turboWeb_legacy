@@ -70,3 +70,19 @@ export async function changeVote(trackID, mode){
     const data = result.data
     console.log(data);
 }
+
+export async function submitSanta(obj){
+    const result = await axios({
+        method: 'put',
+        url: config.APIhostname+'/events/santas',
+        headers: {"Access-Control-Allow-Origin": "*"},
+        data: {
+            santaObj: JSON.stringify(obj),
+        }
+    }).catch( err => {
+        console.log(err);
+    });
+
+    const data = result.data
+    console.log(data);
+}
