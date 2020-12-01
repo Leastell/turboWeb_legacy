@@ -45,7 +45,7 @@ class SecretSanta extends Component {
 
         if (filled){
             formResult['name'] = document.forms["ssForm"]["name"].value;
-            formResult['email'] = document.forms["ssForm"]["name"].value;
+            formResult['email'] = document.forms["ssForm"]["email"].value;
             formResult['message'] = document.forms["ssForm"]["message"].value;
             formResult['shirtsize'] = document.forms["ssForm"]["shirtsize"].value;
             formResult['snack'] = document.forms["ssForm"]["snack"].value;
