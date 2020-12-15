@@ -137,7 +137,6 @@ a{
   font-size: 110%;
 }
 
-
 .playlistFlow, .showcaseFlow{
   display: flex;
   flex-direction: row;
@@ -150,7 +149,6 @@ a{
 }
 
 .showcaseIcon{
-  --width: 500px;
   --height: 180px;
   --border-radius: 20px;
   display: grid;
@@ -180,6 +178,7 @@ a{
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+  max-width: 300px;
 }
 
 .showcaseData > .name{
