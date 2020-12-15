@@ -12,8 +12,6 @@ class trackView extends Component {
             backgroundImage: 'url('+track.album.images[1].url+')'
         }
 
-        console.log(track);
-
         return (<div className="track" >
             <div className='album_art' style={ albumArtStyle }></div>
             <a href={"https://open.spotify.com/track/"+track.id}>

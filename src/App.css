@@ -254,6 +254,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 40vw;
+  line-height: 20px;
 }
 
 .loader{

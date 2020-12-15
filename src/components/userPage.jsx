@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getUser } from '../scripts/API'
+import { getUser, getPlaylist, changeVote } from '../scripts/API'
 import Track from './track'
 import Loader from './loader'
 
@@ -30,6 +30,8 @@ class userDisplay extends Component {
 
         let aviURL = "https://cdn.discordapp.com/avatars/"+result.user.id+"/"+result.user.avatar+".png"
 
+        const voteState = localStorage.getItem('trackVotes') ? (JSON.parse(localStorage.getItem('trackVotes'))) : [];
+
         this.setState({
             isLoading: false,
             userID,
@@ -37,8 +39,44 @@ class userDisplay extends Component {
             aviURL,
             displayName,
             items: result.tracks,
-            votes
+            votes,
+            storedVotes: voteState
         })
+    }
+
+    updateVote = (trackID) => {
+        let increment = false
+        let voteClone = [...this.state.storedVotes]
+
+        if(voteClone.includes(trackID)){
+            let newArray = []
+            const arrLength = voteClone.length
+            for(var i = 0; i < arrLength; i++){
+                if(voteClone[i] !== trackID){
+                    newArray.push(voteClone[i])
+                }
+            }
+            voteClone = newArray;
+        }
+        else{
+            increment = true
+            voteClone.push(trackID);
+        }
+        
+
+        this.setState({
+            storedVotes : voteClone
+        })
+
+        localStorage.setItem('trackVotes', JSON.stringify(voteClone))
+
+        if(increment){
+            changeVote(trackID, 'increment')
+        }
+        else{
+            changeVote(trackID, 'decrement')
+        }
+
     }
 
     render() {
@@ -68,7 +106,7 @@ class userDisplay extends Component {
                             <div className="data">{this.state.votes}</div>
                         </div>
                     </div>
-                    {this.state.items.map(track => <Track key={track.id} trackObj={track} storageFunction={this.updateVote} />) }
+                    {this.state.items.map(track => <Track key={track.id} trackObj={track} storageFunction={this.updateVote} voteStatus={this.state.storedVotes.includes(track.id)}/>) }
                 </div>}
             </div>
         )
