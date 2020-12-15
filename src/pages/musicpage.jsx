@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PlaylistIcon from '../components/playlisticon';
 import Loader from '../components/loader'
-import { getPlaylists } from '../scripts/API'
+import { getPlaylists, getPlaylistData } from '../scripts/API'
 import DiscordButton from '../components/discordbutton'
+import ShowcaseIcon from '../components/showcaseicon'
 
 class MusicPage extends Component {
     state = { 
-        isLoading: true, 
+        isLoading: true,
+        showcasePlaylists: ["27KQZuHHIJIXdSIdX5gwNr", "5GGM872Q1jVXktaEOQxmp7", "1rxyVfZK8moMX44dkFkmXh"]
     }
 
     playlistIcons = []
@@ -22,24 +24,37 @@ class MusicPage extends Component {
 
         this.playlistIcons.reverse()
 
+        let showcaseIcons = []
+
+        for (const index in this.state.showcasePlaylists) {
+            let playlistID = this.state.showcasePlaylists[index];
+            let data = await getPlaylistData(playlistID);
+            showcaseIcons.push(<ShowcaseIcon key={playlistID} playlistid={playlistID} data={data}/>)
+        }
+
         this.setState({
-            isLoading: false
+            isLoading: false,
+            showcaseIcons
         })
 
     }
 
-
     render() {
 
         return ( 
-        <div>
-            <div className="heading">Playlist Archive</div>
+        <>
             {this.state.isLoading ? <Loader /> : 
-            <div className="playlistFlow">
-                {this.playlistIcons}
-            </div>}
+            <>
+                <div className="showcaseFlow">
+                    {this.state.showcaseIcons}
+                </div>
+                <div className="heading">Playlist Archive</div>
+                <div className="playlistFlow">
+                    {this.playlistIcons}
+                </div>
+            </>}
             <DiscordButton />
-        </div> 
+        </> 
         );
     }
 }

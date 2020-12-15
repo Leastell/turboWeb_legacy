@@ -54,6 +54,20 @@ export async function getUser(userID){
     return data
 }
 
+export async function getPlaylistData(playlistID){
+
+    const result = await axios({
+        method: 'get',
+        url: config.APIhostname+'/playlists/spotify/'+playlistID,
+        headers: {"Access-Control-Allow-Origin": "*"}
+    }).catch( err => {
+        console.log(err);
+    });
+
+    const data = result.data
+    return data
+}
+
 export async function changeVote(trackID, mode){
     const result = await axios({
         method: 'put',
