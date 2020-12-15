@@ -150,6 +150,7 @@ a{
 
 .showcaseIcon{
   --height: 180px;
+  --width: 420px;
   --border-radius: 20px;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -178,8 +179,7 @@ a{
   flex-direction: column;
   justify-content: center;
   padding: 10px;
-  max-width: 300px;
-  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .showcaseData > .name{
@@ -187,9 +187,6 @@ a{
   padding-bottom: 10px;
 }
 
-.showcaseData > .desc{
-  color:rgb(138, 138, 138);
-}
 
 .playlist_icon{
   --width: 250px;

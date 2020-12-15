@@ -23,7 +23,6 @@ class ShowcaseIcon extends Component {
                     <img src={this.props.data.images[0].url} alt="Playlist Icon"/>
                     <div className="showcaseData">
                         <div className="name">{this.decodeHTMLEntities(this.props.data.name)}</div>
-                        <div className="desc">{this.decodeHTMLEntities(this.props.data.description)}</div>
                     </div>
                 </div>
             </a>
