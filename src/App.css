@@ -179,6 +179,7 @@ a{
   justify-content: center;
   padding: 10px;
   max-width: 300px;
+  word-wrap: break-word;
 }
 
 .showcaseData > .name{
