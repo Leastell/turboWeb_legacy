@@ -8,7 +8,7 @@ import ShowcaseIcon from '../components/showcaseicon'
 class MusicPage extends Component {
     state = { 
         isLoading: true,
-        showcasePlaylists: ["27KQZuHHIJIXdSIdX5gwNr", "5GGM872Q1jVXktaEOQxmp7", "1rxyVfZK8moMX44dkFkmXh"]
+        showcasePlaylists: ["27KQZuHHIJIXdSIdX5gwNr", "5GGM872Q1jVXktaEOQxmp7", "3TJxAkWtRy2AlNcWylHbMD"]
     }
 
     playlistIcons = []
