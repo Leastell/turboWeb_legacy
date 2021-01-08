@@ -46,7 +46,7 @@ class MusicPage extends Component {
         <>
             {this.state.isLoading ? <Loader /> : 
             <>
-                <Flickity
+                <Flickity className="ignorePad"
                 options={{
                     prevNextButtons: false,
                     initialIndex: 1,
