@@ -8,7 +8,7 @@ a{
 }
 
 .ignorePad{
-  margin: 0 -200px;
+  margin: 0 -20px;
 }
 
 *::-webkit-scrollbar {
@@ -148,14 +148,19 @@ a{
   justify-content: center;
 }
 
-.flickity-page-dots{
-  display: none;
+.flickity-viewport{
+  overflow-x: hidden;
 }
 
 .flickity-enabled{
   outline: none;
   width: 100vw;
 }
+
+.flickity-page-dots{
+  display: none;
+}
+
 
 .showcaseFlow{
   margin-top: 20px;
