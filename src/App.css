@@ -154,6 +154,7 @@ a{
 
 .flickity-enabled{
   outline: none;
+  width: 100vw;
 }
 
 .showcaseFlow{
