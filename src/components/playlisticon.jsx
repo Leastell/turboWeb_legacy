@@ -45,7 +45,14 @@ class PlaylistIcon extends Component {
                 <div className="albumGrid">
                     {this.state.images.map((image, index) => {
                         index = index+1;
-                        return <img src = {image} alt = "album art" key={startDate.toString("MMM dd, yyyy")+"art"+index}/>
+                        
+                        let imgStyle = {
+                            backgroundImage: 'url('+image+')'
+                        }
+
+                        let element = <div style = {imgStyle} alt = "album art" key={startDate.toString("MMM dd, yyyy")+"art"+index}></div>
+                        
+                        return element
                     }) }
                 </div>
                 {current ? 

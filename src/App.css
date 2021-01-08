@@ -7,6 +7,10 @@ a{
   padding: 60px 20px 30px 20px;
 }
 
+.ignorePad{
+  margin: 0 -200px;
+}
+
 *::-webkit-scrollbar {
   display: none;
 }
@@ -144,6 +148,14 @@ a{
   justify-content: center;
 }
 
+.flickity-page-dots{
+  display: none;
+}
+
+.flickity-enabled{
+  outline: none;
+}
+
 .showcaseFlow{
   margin-top: 20px;
 }
@@ -180,10 +192,10 @@ a{
 }
 
 .playlist_icon{
-  --width: 250px;
+  --size: 250px;
   --border-radius: 20px;
   position: relative;
-  width: var(--width);
+  width: var(--size);
   border-radius: var(--border-radius);
   text-decoration: none;
   color: white;
@@ -199,7 +211,7 @@ a{
 }
 
 .albumLoader{
-  height: var(--width);
+  height: var(--size);
   grid-column: 1 / span 2;
   grid-row: 1 / span 2;
   background: url("./img/logo/wireframe.png") no-repeat;
@@ -210,35 +222,38 @@ a{
 }
 
 .albumGrid{
+  height: var(--size);
+  width: var(--size);
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
 }
 
-.albumGrid img:nth-child(1){
+.albumGrid div{
+  background-size: calc( var(--size) / 2 ) calc( var(--size) / 2 );
+}
+
+.albumGrid div:nth-child(1){
   border-radius: var(--border-radius) 0 0 0;
 }
 
-.albumGrid img:nth-child(2){
+.albumGrid div:nth-child(2){
   border-radius: 0 var(--border-radius) 0 0;
 }
 
-.albumGrid img:nth-child(3){
+.albumGrid div:nth-child(3){
   border-radius: 0 0 0 var(--border-radius);
 }
 
-.albumGrid img:nth-child(4){
+.albumGrid div:nth-child(4){
   border-radius: 0 0 var(--border-radius) 0;
 }
 
-.albumGrid img{
-  width: 100%;
-}
 
 .dateIndicator{
   position: absolute;
   height: 50px;
-  width: var(--width);
+  width: var(--size);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   background-color: rgba(0, 0, 0, 0.589);
   bottom: 0;
@@ -447,7 +462,7 @@ a{
   }
 
   .playlist_icon{
-    --width: 40vw;
+    --size: 40vw;
   }
 }
 

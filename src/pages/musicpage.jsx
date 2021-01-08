@@ -4,11 +4,12 @@ import Loader from '../components/loader'
 import { getPlaylists, getPlaylistData } from '../scripts/API'
 import DiscordButton from '../components/discordbutton'
 import ShowcaseIcon from '../components/showcaseicon'
+import Flickity from 'react-flickity-component'
 
 class MusicPage extends Component {
     state = { 
         isLoading: true,
-        showcasePlaylists: ["27KQZuHHIJIXdSIdX5gwNr", "5GGM872Q1jVXktaEOQxmp7", "3TJxAkWtRy2AlNcWylHbMD"]
+        showcasePlaylists: ["5GGM872Q1jVXktaEOQxmp7", "27KQZuHHIJIXdSIdX5gwNr", "3TJxAkWtRy2AlNcWylHbMD"]
     }
 
     playlistIcons = []
@@ -29,7 +30,7 @@ class MusicPage extends Component {
         for (const index in this.state.showcasePlaylists) {
             let playlistID = this.state.showcasePlaylists[index];
             let data = await getPlaylistData(playlistID);
-            showcaseIcons.push(<ShowcaseIcon key={playlistID} playlistid={playlistID} data={data}/>)
+            showcaseIcons.push(<ShowcaseIcon className="carousel-cell" key={playlistID} playlistid={playlistID} data={data}/>)
         }
 
         this.setState({
@@ -45,11 +46,17 @@ class MusicPage extends Component {
         <>
             {this.state.isLoading ? <Loader /> : 
             <>
-                <div className="showcaseFlow">
-                    {this.state.showcaseIcons}
-                </div>
+                <Flickity
+                options={{
+                    prevNextButtons: false,
+                    initialIndex: 1,
+                    static: true
+                }}
+                >
+                     {this.state.showcaseIcons}
+                </Flickity>
                 <div className="heading">Playlist Archive</div>
-                <div className="playlistFlow">
+                <div className="playlistFlow ">
                     {this.playlistIcons}
                 </div>
             </>}
