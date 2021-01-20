@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getThumbnail } from '../scripts/API'
 import { Link } from 'react-router-dom';
+import emptyAlbum from '../img/misc/emptyalbum.png'
 var datejs = require('datejs')
 
 class PlaylistIcon extends Component {
@@ -18,6 +19,12 @@ class PlaylistIcon extends Component {
             if (thumbnailObj.hasOwnProperty(key)) {
                 const element = thumbnailObj[key];
                 images.push(element.url)
+            }
+        }
+        if (images.length < 4){
+            let needed = 4 - images.length
+            for (let index = 0; index < needed; index++) {
+                images.push("none")
             }
         }
         this.setState({ images, isLoading: false })
@@ -45,9 +52,18 @@ class PlaylistIcon extends Component {
                 <div className="albumGrid">
                     {this.state.images.map((image, index) => {
                         index = index+1;
+
+                        let imgStyle = {}
                         
-                        let imgStyle = {
-                            backgroundImage: 'url('+image+')'
+                        if(image!="none"){
+                            imgStyle = {
+                                backgroundImage: 'url('+image+')'
+                            }
+                        }
+                        else{
+                            imgStyle = {
+                                backgroundImage: 'url('+emptyAlbum+')'
+                            }
                         }
 
                         let element = <div style = {imgStyle} alt = "album art" key={startDate.toString("MMM dd, yyyy")+"art"+index}></div>
