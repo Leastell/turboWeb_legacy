@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DiscordUser from './discorduser';
 import VoteButton from './votebutton';
 import { Link } from 'react-router-dom';
+import emptyAlbum from '../img/misc/emptyalbum.png'
 
 class trackView extends Component {
 
@@ -9,7 +10,15 @@ class trackView extends Component {
         const track = this.props.trackObj;
 
         const albumArtStyle = {
-            backgroundImage: 'url('+track.album.images[1].url+')'
+            backgroundImage: emptyAlbum
+        }
+        
+        console.log(track)
+
+        if(typeof track.album.images[1].url !== 'undefined'){
+            const albumArtStyle = {
+                backgroundImage: 'url('+track.album.images[1].url+')'
+            }
         }
 
         return (<div className="track" >
