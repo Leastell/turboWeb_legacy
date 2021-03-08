@@ -9,7 +9,7 @@ import Flickity from 'react-flickity-component'
 class MusicPage extends Component {
     state = { 
         isLoading: true,
-        showcasePlaylists: ["5GGM872Q1jVXktaEOQxmp7", "27KQZuHHIJIXdSIdX5gwNr", "3TJxAkWtRy2AlNcWylHbMD"]
+        showcasePlaylists: ["5GGM872Q1jVXktaEOQxmp7", "27KQZuHHIJIXdSIdX5gwNr", "37HPMMo78q4NF4EuiD1nm2"]
     }
 
     playlistIcons = []

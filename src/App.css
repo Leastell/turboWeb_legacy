@@ -469,6 +469,11 @@ a{
 
   .playlist_icon{
     --size: 40vw;
+    margin: 9px;
+  }
+
+  .showcaseIcon{
+    --width: 42vw;
   }
 }
 
