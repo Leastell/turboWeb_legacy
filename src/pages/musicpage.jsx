@@ -4,9 +4,8 @@ import Loader from '../components/loader'
 import { getPlaylists, getPlaylistData } from '../scripts/API'
 import DiscordButton from '../components/discordbutton'
 import ShowcaseIcon from '../components/showcaseicon'
-import UserLeaderbord from '../components/userLeaderboard'
+import UserLeaderboard from '../components/userLeaderboard'
 import Flickity from 'react-flickity-component'
-import { User } from 'discord.js';
 
 class MusicPage extends Component {
     state = { 
@@ -58,7 +57,7 @@ class MusicPage extends Component {
                      {this.state.showcaseIcons}
                 </Flickity>
                 <div className="heading space">User Leaderboard</div>
-                <UserLeaderbord />
+                <UserLeaderboard />
                 <div className="heading space">Playlist Archive</div>
                 <div className="playlistFlow ">
                     {this.playlistIcons}
