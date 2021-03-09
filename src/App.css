@@ -117,6 +117,10 @@ a{
   font-size: 40px;
 }
 
+.heading.space{
+  margin: 60px auto 10px auto;
+}
+
 #notFound, #construction{
   position:absolute;
   top: 20%;
@@ -196,6 +200,79 @@ a{
   padding-bottom: 10px;
   line-height: 50px;
 }
+
+.leaderboardFrame{
+  width: 40%;
+  margin: auto;
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.89);
+  margin-top: 22px;
+}
+
+.userLeaderboard{
+  --size: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 50vh;
+  padding-top: 60px;
+}
+
+.leaderboardUser{
+  margin: 0 10px 0;
+  text-align: center;
+  margin-bottom: -20px;
+}
+
+.leaderboardUser > .avatar{
+  width: var(--size);
+  height: var(--size);
+  background-size: cover;
+  border-radius: 50%;
+  margin-top: calc(-1 * var(--size) / 2 );
+}
+
+.leaderboardUser > .avatar > .crown{
+  height: calc( var(--size) / 2 );
+  position: absolute;
+  transform: translate( calc( var(--size) / 16 ), calc( -1 * var(--size) / 3) ) rotate(30deg);
+}
+
+.leaderboardUser > .name{
+  font-size: 22px;
+}
+
+.leaderboardUser > .votes{
+  font-size: 18px;
+}
+
+.leaderboardUser.first{
+  background-color: white;
+  order: 2;
+  color: black;
+}
+
+.leaderboardUser.second{
+  background-color: #ed0033;
+  order: 1;
+}
+
+.leaderboardUser.third{
+  background-color: #00f4ff;
+  order: 3;
+  color: black;
+}
+
+.leaderboardUser.fourth{
+  background-color: rgb(20, 20, 20);
+  order: 0;
+}
+
+.leaderboardUser.fifth{
+  background-color: rgb(20, 20, 20);
+  order: 4;
+}
+
 
 .playlist_icon{
   --size: 250px;
@@ -474,6 +551,18 @@ a{
 
   .showcaseIcon{
     --width: 42vw;
+  }
+
+  .leaderboardFrame{
+    width: 80%;
+  }
+
+  .leaderboardUser.fourth{
+    display: none;
+  }
+  
+  .leaderboardUser.fifth{
+    display: none;
   }
 }
 

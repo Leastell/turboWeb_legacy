@@ -100,3 +100,17 @@ export async function submitSanta(obj){
     const data = result.data
     console.log(data);
 }
+
+export async function getUserLeaderboard(){
+
+    const result = await axios({
+        method: 'get',
+        url: config.APIhostname+'/leaderboards/users',
+        headers: {"Access-Control-Allow-Origin": "*"}
+    }).catch( err => {
+        console.log(err);
+    });
+
+    const data = result.data
+    return data
+}
