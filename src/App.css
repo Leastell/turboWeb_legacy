@@ -118,7 +118,7 @@ a{
 }
 
 .heading.space{
-  margin: 60px auto 10px auto;
+  margin: 30px auto 10px auto;
 }
 
 #notFound, #construction{
@@ -202,12 +202,15 @@ a{
 }
 
 .leaderboardFrame{
-  --size: 120px;
+  --size: 110px;
   min-height: 45vh;
   width: calc( var(--size) * 5 );
   margin: auto;
+  margin-bottom: 70px;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.89);
   margin-top: 22px;
+  z-index: -50;
+  position:relative
 }
 
 .userLeaderboard{
@@ -220,7 +223,7 @@ a{
 }
 
 .leaderboardUser{
-  margin: 0 10px 0;
+  margin: 0 15px 0;
   text-align: center;
   margin-bottom: -20px;
 }
@@ -273,8 +276,6 @@ a{
   background-color: rgb(20, 20, 20);
   order: 4;
 }
-
-
 .playlist_icon{
   --size: 250px;
   --border-radius: 20px;
@@ -404,8 +405,8 @@ a{
 
 .mini_loader > img{
   animation: spin .85s infinite linear;
-  height: 100px;
-  margin-top: 25%;
+  height: 90px;
+  margin-top: 20%;
 }
 
 .loader{
