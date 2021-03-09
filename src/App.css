@@ -17,7 +17,7 @@ a{
 
 #Navbar{
   position: absolute;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -202,14 +202,14 @@ a{
 }
 
 .leaderboardFrame{
-  width: 40%;
+  --size: 120px;
+  width: calc( var(--size) * 5 );
   margin: auto;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.89);
   margin-top: 22px;
 }
 
 .userLeaderboard{
-  --size: 120px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -554,7 +554,8 @@ a{
   }
 
   .leaderboardFrame{
-    width: 80%;
+    --size: 110px;
+    width: calc( var(--size) * 3 );
   }
 
   .leaderboardUser.fourth{

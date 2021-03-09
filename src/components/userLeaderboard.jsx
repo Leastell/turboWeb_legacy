@@ -73,9 +73,11 @@ class UserLeaderboard extends Component {
             <>
                 {this.state.isLoading ? <></> :
                 <> 
+                    <div className="leaderboardFrame">
                         <div className="userLeaderboard">
                             {this.state.leaderboardElements.map(leaderboardElement => leaderboardElement) }
                         </div>
+                    </div>
                 </>}
             </>
         );
