@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getUserLeaderboard } from '../scripts/API'
 import Crown from '../img/misc/crown.svg'
+import MiniLoader from './miniLoader';
 
 class UserLeaderboard extends Component {
     state = {  }
@@ -71,14 +72,14 @@ class UserLeaderboard extends Component {
     render() { 
         return (
             <>
-                {this.state.isLoading ? <></> :
+                <div className="leaderboardFrame">
+                {this.state.isLoading ? <MiniLoader /> :
                 <> 
-                    <div className="leaderboardFrame">
                         <div className="userLeaderboard">
                             {this.state.leaderboardElements.map(leaderboardElement => leaderboardElement) }
                         </div>
-                    </div>
                 </>}
+                </div>
             </>
         );
     }
