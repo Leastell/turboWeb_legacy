@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getUser, getPlaylist, changeVote } from '../scripts/API'
-import Track from './track'
-import Loader from './loader'
+import Track from '../components/track'
+import Loader from '../components/loader'
 
 class userDisplay extends Component {
     state = {

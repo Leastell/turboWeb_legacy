@@ -10,26 +10,6 @@ class PlaylistIcon extends Component {
         isLoading: true
      }
 
-    async componentDidMount(){
-        let images = []
-
-        const thumbnailObj = await getThumbnail(this.props.playlistDate)
-
-        for (const key in thumbnailObj) {
-            if (thumbnailObj.hasOwnProperty(key)) {
-                const element = thumbnailObj[key];
-                images.push(element.url)
-            }
-        }
-        if (images.length < 4){
-            let needed = 4 - images.length
-            for (let index = 0; index < needed; index++) {
-                images.push("none")
-            }
-        }
-        this.setState({ images, isLoading: false })
-    }
-
     render() {
         let startDate = new Date(this.props.playlistDate);
         startDate = startDate.add(1).day()

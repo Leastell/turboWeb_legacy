@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {submitSanta} from '../scripts/API'
-import '../specialStyles/santa.css';
+import '../styles/santa.css';
 
 class SecretSanta extends Component {
     

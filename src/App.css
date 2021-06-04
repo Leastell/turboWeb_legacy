@@ -145,13 +145,6 @@ a{
   font-size: 110%;
 }
 
-.playlistFlow, .showcaseFlow{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .flickity-viewport{
   overflow-x: hidden;
 }
@@ -163,11 +156,6 @@ a{
 
 .flickity-page-dots{
   display: none;
-}
-
-
-.showcaseFlow{
-  margin-top: 20px;
 }
 
 .showcaseIcon{
@@ -202,7 +190,7 @@ a{
 }
 
 .leaderboardFrame{
-  --size: 110px;
+  --size: 100px;
   min-height: 45vh;
   width: calc( var(--size) * 5 );
   margin: auto;
@@ -234,6 +222,8 @@ a{
   background-size: cover;
   border-radius: 50%;
   margin-top: calc(-1 * var(--size) / 2 );
+  margin-left: -6px;
+  margin-right: -6px;
 }
 
 .leaderboardUser > .avatar > .crown{
@@ -276,7 +266,15 @@ a{
   background-color: rgb(20, 20, 20);
   order: 4;
 }
-.playlist_icon{
+
+.playlistFlow{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.playlistIcon{
   --size: 250px;
   --border-radius: 20px;
   position: relative;
@@ -290,7 +288,7 @@ a{
   margin: 10px;
 }
 
-.playlist_icon:hover{
+.playlistIcon:hover{
   transform: scale(1.015,1.015);
   box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.65);
 }
@@ -334,7 +332,6 @@ a{
   border-radius: 0 0 var(--border-radius) 0;
 }
 
-
 .dateIndicator{
   position: absolute;
   height: 50px;
@@ -342,9 +339,15 @@ a{
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   background-color: rgba(0, 0, 0, 0.589);
   bottom: 0;
-  vertical-align: bottom;
   line-height: 50px;
-  padding-left: var(--left-pad);
+  text-align: center;
+}
+
+.playlistFlow > .divider{
+  flex-grow: 2;
+  width: 100%;
+  font-size: 35px;
+  margin: 20px 0 10px 0;
   text-align: center;
 }
 
@@ -559,7 +562,7 @@ a{
     width: 70%;
   }
 
-  .playlist_icon{
+  .playlistIcon{
     --size: 40vw;
     margin: 9px;
   }

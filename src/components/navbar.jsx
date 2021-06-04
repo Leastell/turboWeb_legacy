@@ -5,15 +5,11 @@ class Navbar extends Component {
     state = {
         links: [
             {
-                title: "Music",
-                active: false
-            },
-            {
                 title: "Home",
                 active: false
             },
             {
-                title: "Events",
+                title: "Music",
                 active: false
             }
         ]

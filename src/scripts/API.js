@@ -85,6 +85,20 @@ export async function changeVote(trackID, mode){
     console.log(data);
 }
 
+export async function getEvents(){
+
+    const result = await axios({
+        method: 'get',
+        url: config.APIhostname+'/events',
+        headers: {"Access-Control-Allow-Origin": "*"}
+    }).catch( err => {
+        console.log(err);
+    });
+
+    const data = result.data
+    return data
+}
+
 export async function submitSanta(obj){
     const result = await axios({
         method: 'put',

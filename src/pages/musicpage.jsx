@@ -17,11 +17,17 @@ class MusicPage extends Component {
 
     async componentDidMount(){
         const fetchedPlaylists = await getPlaylists()
+        let lastDate = ""
 
         for (const index in fetchedPlaylists) {
-            if (fetchedPlaylists.hasOwnProperty(index)) {
-                this.playlistIcons.push(<PlaylistIcon key={fetchedPlaylists[index]} playlistDate={fetchedPlaylists[index]}/>)
+            if(lastDate != fetchedPlaylists[index].substring(0,4)){
+                let keyval = "divider"+index
+                if(lastDate != ""){
+                    this.playlistIcons.push(<div className="divider" key={keyval}><span>{lastDate}</span></div>)
+                }
+                lastDate = fetchedPlaylists[index].substring(0,4)
             }
+            this.playlistIcons.push(<PlaylistIcon key={fetchedPlaylists[index]} playlistDate={fetchedPlaylists[index]}/>)
         }
 
         this.playlistIcons.reverse()
