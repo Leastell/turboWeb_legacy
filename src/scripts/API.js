@@ -41,6 +41,20 @@ export async function getPlaylists(){
     return data
 }
 
+export async function getSeasons(){
+
+    const result = await axios({
+        method: 'get',
+        url: config.APIhostname+'/playlists/seasons',
+        headers: {"Access-Control-Allow-Origin": "*"}
+    }).catch( err => {
+        console.log(err);
+    });
+
+    const data = result.data
+    return data
+}
+
 export async function getUser(userID){
     const result = await axios({
         method: 'get',
@@ -120,6 +134,22 @@ export async function getUserLeaderboard(){
     const result = await axios({
         method: 'get',
         url: config.APIhostname+'/leaderboards/users',
+        headers: {"Access-Control-Allow-Origin": "*"}
+    }).catch( err => {
+        console.log(err);
+    });
+
+    const data = result.data
+    return data
+}
+
+export async function getUserLeaderboardSeason(season){
+
+    console.log(config.APIhostname+'/leaderboards/users/seasons/'+season);
+
+    const result = await axios({
+        method: 'get',
+        url: config.APIhostname+'/leaderboards/users/season/'+season,
         headers: {"Access-Control-Allow-Origin": "*"}
     }).catch( err => {
         console.log(err);

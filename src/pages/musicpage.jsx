@@ -17,6 +17,7 @@ class MusicPage extends Component {
 
     async componentDidMount(){
         const fetchedPlaylists = await getPlaylists()
+        console.log(fetchedPlaylists);
         let lastDate = ""
 
         for (const index in fetchedPlaylists) {
