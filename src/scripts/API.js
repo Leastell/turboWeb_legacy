@@ -145,8 +145,6 @@ export async function getUserLeaderboard(){
 
 export async function getUserLeaderboardSeason(season){
 
-    console.log(config.APIhostname+'/leaderboards/users/seasons/'+season);
-
     const result = await axios({
         method: 'get',
         url: config.APIhostname+'/leaderboards/users/season/'+season,

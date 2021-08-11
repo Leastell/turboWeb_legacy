@@ -249,7 +249,6 @@ a{
   align-items: flex-end;
   width: 100%;
   height: 50vh;
-  padding-top: 60px;
 }
 
 .leaderboardUser{
@@ -257,6 +256,7 @@ a{
   text-align: center;
   margin-bottom: -20px;
   transition: all .5s;
+  border-radius: calc(var(--size)/2) calc(var(--size)/2) 0 0;
 }
 
 .leaderboardUser > .avatar{
@@ -264,9 +264,17 @@ a{
   height: var(--size);
   background-size: cover;
   border-radius: 50%;
-  margin-top: calc(-1 * var(--size) / 2 );
   margin-left: -6px;
   margin-right: -6px;
+}
+
+.leaderboardUser > .avatar > .avi{
+  width: var(--size);
+  height: var(--size);
+  background-size: cover;
+  border-radius: 50%;
+  position: absolute;
+  transition: opacity .25s;
 }
 
 .leaderboardUser > .avatar > .crown{
@@ -615,7 +623,7 @@ a{
   }
 
   .leaderboardFrame{
-    --size: 110px;
+    --size: 92px;
     width: calc( var(--size) * 3 );
   }
 
