@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {submitSanta} from '../scripts/API'
+import turbosanta from '../img/logo/turbosanta.svg'
 import '../styles/santa.css';
 
 class SecretSanta extends Component {
@@ -71,10 +72,13 @@ class SecretSanta extends Component {
         return (
             this.state.submitted ? <div className="submitted">Submitted!</div> :
             <div>
+                <div className="santalogo">
+                    <img src={turbosanta} alt="turbo logo with santa hat" />
+                </div>
                 <div className="heading">Secret Santa Sign-up</div>
                 <form className="ssForm" name="ssForm">
                     <label>
-                        Name:
+                        Name (first and last):
                     </label>
                     <input type="text" name="name"/>
                     <label>
@@ -84,7 +88,7 @@ class SecretSanta extends Component {
                     <label>
                         Message / Gift Preferences
                     </label>
-                    <textarea rows='4' name="message"></textarea>
+                    <textarea rows='4' name="message" maxlength="500"></textarea>
                     <label>
                         Shirt Size
                     </label>
