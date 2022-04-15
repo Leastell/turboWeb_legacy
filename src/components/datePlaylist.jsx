@@ -21,7 +21,7 @@ class datePlaylist extends Component {
         const voteState = localStorage.getItem('trackVotes') ? (JSON.parse(localStorage.getItem('trackVotes'))) : [];
 
         this.setState({
-            isLoading: false,
+            isLoading: false, 
             playlistDate,
             items: playlistItems,
             storedVotes : voteState

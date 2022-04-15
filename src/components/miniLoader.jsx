@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import miniLoaderImg from '../img/misc/miniloader.png'
+import miniLoaderImg from '../img/misc/loader.png'
 
 class MiniLoader extends Component {
     state = {  }
