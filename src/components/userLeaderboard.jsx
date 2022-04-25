@@ -18,8 +18,6 @@ class UserLeaderboard extends Component {
             leadUsersSeason
         })
 
-        
-
         const userAvatars = {
             all: [
                 {backgroundImage: "url(https://cdn.discordapp.com/avatars/"+leadUsersAll[0][0]+"/"+leadUsersAll[0][3]+".png)", opacity: "0"},
@@ -39,6 +37,7 @@ class UserLeaderboard extends Component {
 
         this.generateLeaderboard(2)
 
+        console.log("Not loading anymore");
         this.setState({
             isLoading: false,
             userAvatars,
@@ -47,7 +46,7 @@ class UserLeaderboard extends Component {
 
         console.log(this.state.userAvatars.all[1])
     }
-
+ 
     generateLeaderboard = (season) => {
         let leaderboardUsers = []
 
@@ -121,7 +120,7 @@ class UserLeaderboard extends Component {
                     <div className="leaderboardTop">
                         <div className="label">{this.state.labelText}</div>
                         <div className="switch">
-                            <input type="checkbox" checked onClick={switchClick}/>
+                            <input type="checkbox" onClick={switchClick}/>
                             <div className="slider active"></div>
                         </div>
                     </div>

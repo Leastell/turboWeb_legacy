@@ -466,7 +466,6 @@ a{
 }
 
 .loader{
-  border: 1px solid purple;
   --loader-size: 125px;
   position: fixed;
   top: 50vh;

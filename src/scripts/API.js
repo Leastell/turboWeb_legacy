@@ -131,6 +131,8 @@ export async function submitSanta(obj){
 
 export async function getUserLeaderboard(){
 
+    console.log("1");
+
     const result = await axios({
         method: 'get',
         url: config.APIhostname+'/leaderboards/users',
@@ -138,6 +140,8 @@ export async function getUserLeaderboard(){
     }).catch( err => {
         console.log(err);
     });
+
+    console.log("2");
 
     const data = result.data
     return data
