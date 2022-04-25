@@ -96,7 +96,6 @@ export async function changeVote(trackID, mode){
     });
 
     const data = result.data
-    console.log(data);
 }
 
 export async function getEvents(){
@@ -126,12 +125,9 @@ export async function submitSanta(obj){
     });
 
     const data = result.data
-    console.log(data);
 }
 
 export async function getUserLeaderboard(){
-
-    console.log("1");
 
     const result = await axios({
         method: 'get',
@@ -140,8 +136,6 @@ export async function getUserLeaderboard(){
     }).catch( err => {
         console.log(err);
     });
-
-    console.log("2");
 
     const data = result.data
     return data

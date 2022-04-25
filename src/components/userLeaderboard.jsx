@@ -37,14 +37,11 @@ class UserLeaderboard extends Component {
 
         this.generateLeaderboard(2)
 
-        console.log("Not loading anymore");
         this.setState({
             isLoading: false,
             userAvatars,
             labelText: "Season"
         })
-
-        console.log(this.state.userAvatars.all[1])
     }
  
     generateLeaderboard = (season) => {
@@ -82,12 +79,16 @@ class UserLeaderboard extends Component {
             let element = document.getElementsByClassName("slider")[0];
             let avatarTemp = JSON.parse(JSON.stringify(this.state.userAvatars));
 
+            console.log(avatarTemp);
+
             if(element.classList.contains('active')){
                 element.classList.remove('active');
 
                 for (let i = 0; i < avatarTemp.season.length; i++) {
-                    avatarTemp.season[i].opacity = "0"
-                    avatarTemp.all[i].opacity = "100"
+                    if(avatarTemp.season[i].backgroundImage !== avatarTemp.all[i].backgroundImage){
+                        avatarTemp.season[i].opacity = "0"
+                        avatarTemp.all[i].opacity = "100"
+                    }
                 }
 
                 this.setState({
@@ -100,8 +101,10 @@ class UserLeaderboard extends Component {
                 element.classList.add('active');
 
                 for (let i = 0; i < avatarTemp.season.length; i++) {
-                    avatarTemp.season[i].opacity = "100"
-                    avatarTemp.all[i].opacity = "0"
+                    if(avatarTemp.season[i].backgroundImage !== avatarTemp.all[i].backgroundImage){
+                        avatarTemp.season[i].opacity = "100"
+                        avatarTemp.all[i].opacity = "0"
+                    }
                 }
 
                 this.setState({

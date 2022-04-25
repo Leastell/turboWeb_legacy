@@ -271,6 +271,7 @@ a{
 }
 
 .leaderboardUser > .avatar > .avi{
+  margin-top: -1px;
   width: var(--size);
   height: var(--size);
   background-size: cover;
@@ -282,7 +283,7 @@ a{
 .leaderboardUser > .avatar > .crown{
   height: calc( var(--size) / 2 );
   position: absolute;
-  transform: translate( calc( var(--size) / 16 ), calc( -1 * var(--size) / 3) ) rotate(30deg);
+  transform: translate( calc( var(--size) / 15 ), calc( -1 * var(--size) / 3) ) rotate(30deg);
 }
 
 .leaderboardUser > .name{
