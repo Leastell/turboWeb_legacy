@@ -466,18 +466,18 @@ a{
 }
 
 .loader{
-  --loader-size: 200px;
+  border: 1px solid purple;
+  --loader-size: 125px;
   position: fixed;
   top: 50vh;
   left: 50vw;
-  margin-left: calc( 0px - var(--loader-size) / 2 );
+  margin-left: calc( 0px - var(--loader-size) / 4 );
   margin-top: calc( 0px - var(--loader-size) / 2 );
 }
 
 .loader > img{
   animation: spin .85s infinite linear;
   height: var(--loader-size);
-  margin-top: 20%;
 }
 
 .loader_text{
