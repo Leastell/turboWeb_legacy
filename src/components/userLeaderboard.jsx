@@ -79,7 +79,7 @@ class UserLeaderboard extends Component {
             let style = {
                 minHeight: "120px"
             }
-            if(userVal === undefined){
+            if(userVal === undefined || userVal === 0){
                 style.height = "1%"
             } else {
                 style.height = parseInt(Math.floor(calcHeight)) + "%"
