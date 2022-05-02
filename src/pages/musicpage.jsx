@@ -6,11 +6,12 @@ import DiscordButton from '../components/discordbutton'
 import ShowcaseIcon from '../components/showcaseicon'
 import UserLeaderboard from '../components/userLeaderboard'
 import Flickity from 'react-flickity-component'
+import { withRouter } from 'react-router-dom';
 
 class MusicPage extends Component {
     state = { 
         isLoading: true,
-        showcasePlaylists: ["5GGM872Q1jVXktaEOQxmp7", "27KQZuHHIJIXdSIdX5gwNr", "37HPMMo78q4NF4EuiD1nm2"]
+        showcasePlaylists: ["5GGM872Q1jVXktaEOQxmp7", "27KQZuHHIJIXdSIdX5gwNr", "1i2GbaKB09GSgTzmiMFHqs"]
     }
 
     playlistIcons = []
@@ -63,7 +64,7 @@ class MusicPage extends Component {
                      {this.state.showcaseIcons}
                 </Flickity>
                 <div className="heading space">User Leaderboard</div>
-                <UserLeaderboard />
+                <UserLeaderboard history={this.props.history}/>
                 <div className="heading space">Playlist Archive</div>
                 <div className="playlistFlow ">
                     {this.playlistIcons}

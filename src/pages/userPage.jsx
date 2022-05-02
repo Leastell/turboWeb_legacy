@@ -12,6 +12,7 @@ class userDisplay extends Component {
         let userID = this.props.match.params.userID
         let result = await getUser(userID)
         let displayName = ''
+        let userName = result.user.username
 
         if(result.nick === null){
             displayName = result.user.username
@@ -37,6 +38,7 @@ class userDisplay extends Component {
             userID,
             discriminator: result.user.discriminator,
             aviURL,
+            userName,
             displayName,
             items: result.tracks,
             votes,
@@ -93,8 +95,8 @@ class userDisplay extends Component {
                         <div className="user_icon">
                             <div className="avatar" style={avatarStyle}></div>
                             <div className="name">
-                                <span className="username">{this.state.displayName}</span>
-                                <span className="discriminator">#{this.state.discriminator}</span>
+                                <span className="displayname">{this.state.displayName}</span>
+                                <span className="username">{this.state.userName}#{this.state.discriminator}</span>
                             </div>
                         </div>
                         <div className="stat">

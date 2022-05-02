@@ -10,8 +10,6 @@ class trackView extends Component {
         const track = this.props.trackObj;
         if(track.name !== ''){
 
-            console.log(track)
-
             const albumArtStyle = {
                 backgroundImage: 'url('+track.album.images[1].url+')'
             }

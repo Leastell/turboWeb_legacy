@@ -467,22 +467,23 @@ a{
 }
 
 .loader{
-  --loader-size: 125px;
+  --loader-size: 250px;
   position: fixed;
   top: 50vh;
   left: 50vw;
-  margin-left: calc( 0px - var(--loader-size) / 4 );
+  margin-left: calc( 0px - var(--loader-size) / 2 );
   margin-top: calc( 0px - var(--loader-size) / 2 );
 }
 
 .loader > img{
-  animation: spin .85s infinite linear;
   height: var(--loader-size);
 }
 
 .loader_text{
   width: var(--loader-size);
+  font-size: 120%;
   text-align: center;
+  margin-top: -20px;
 }
 
 .discord_user{
@@ -556,25 +557,26 @@ a{
 .user_icon{
   font-size: 37px;
   --size: 150px;
-  width: var(--size);
   margin-bottom: 10px;
 }
 
 .user_icon > .avatar{
   border-radius: 50%;
   background-repeat: no-repeat;
+  margin: auto;
   background-size: var(--size);
   height: var(--size);
   width: var(--size);
 }
 
 .user_icon > .name{
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  width: var(--size);
 }
 
-.user_icon > .name > .discriminator{
-  font-size: 25px;
+.user_icon > .name > .username{
+  font-size: 30px;
   color: grey;
 }
 
@@ -585,11 +587,11 @@ a{
 
 .stat > .title{
   text-align: center;
-  color: rgb(138, 138, 138);
 }
 
 .stat > .data{
   text-align: center;
+  color: rgb(138, 138, 138);
 }
 
 .santalogo{
