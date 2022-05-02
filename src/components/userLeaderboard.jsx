@@ -33,15 +33,15 @@ class UserLeaderboard extends Component {
         for (let i = 0; i < 5; i++) {
 
             // All
-            userAvatars.all.push({backgroundImage: "url(https://cdn.discordapp.com/avatars/"+leadUsersAll[i][0]+"/"+leadUsersAll[i][3]+".png)", opacity: "0"})
+            userAvatars.all.push({backgroundImage: "url(https://cdn.discordapp.com/avatars/"+leadUsersAll[i][0]+"/"+leadUsersAll[i][3]+".png)", opacity: "0", cursor:"pointer"})
 
             userIds.all.push(leadUsersAll[i][0])
 
             // Season
             if(leadUsersSeason[i][0] === ''){
-                userAvatars.season.push({backgroundImage: "url("+emptyAlbum+")", opacity: "100"})
+                userAvatars.season.push({backgroundImage: "url("+emptyAlbum+")", opacity: "100", cursor:"default"})
             } else {
-                userAvatars.season.push({backgroundImage: "url(https://cdn.discordapp.com/avatars/"+leadUsersSeason[i][0]+"/"+leadUsersSeason[i][3]+".png)", opacity: "100"})
+                userAvatars.season.push({backgroundImage: "url(https://cdn.discordapp.com/avatars/"+leadUsersSeason[i][0]+"/"+leadUsersSeason[i][3]+".png)", opacity: "100", cursor:"pointer"})
 
                 userIds.season.push(leadUsersAll[i][0])
             }
@@ -95,7 +95,9 @@ class UserLeaderboard extends Component {
     }
 
     userRoute = (userId) => {
-        this.props.history.push("/music/user/"+userId)
+        if(userId !== undefined){
+            this.props.history.push("/music/user/"+userId)
+        }
     }
 
     render() {
