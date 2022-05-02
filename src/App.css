@@ -567,6 +567,7 @@ a{
   background-size: var(--size);
   height: var(--size);
   width: var(--size);
+  cursor: pointer
 }
 
 .user_icon > .name{
