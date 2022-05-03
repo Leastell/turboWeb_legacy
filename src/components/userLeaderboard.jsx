@@ -43,7 +43,7 @@ class UserLeaderboard extends Component {
             } else {
                 userAvatars.season.push({backgroundImage: "url(https://cdn.discordapp.com/avatars/"+leadUsersSeason[i][0]+"/"+leadUsersSeason[i][3]+".png)", opacity: "100", cursor:"pointer"})
 
-                userIds.season.push(leadUsersAll[i][0])
+                userIds.season.push(leadUsersSeason[i][0])
             }
             
         }
@@ -51,19 +51,21 @@ class UserLeaderboard extends Component {
         this.generateLeaderboard(this.state.curSeason)
 
         let labelText = "Season "+this.state.curSeason
+        let curMode = this.state.curSeason
 
         this.setState({
             isLoading: false,
             userAvatars,
             userIds,
-            labelText
+            labelText,
+            curMode
         })
     }
  
     generateLeaderboard = (season) => {
         let leaderboardUsers = []
 
-        if(season == 0){
+        if(season === 0){
             leaderboardUsers = [...this.state.leadUsersAll]
         }
         else{
@@ -94,7 +96,15 @@ class UserLeaderboard extends Component {
         })
     }
 
-    userRoute = (userId) => {
+    userRoute = (place) => {
+        let userId = undefined
+
+        if (this.state.curMode > 0){
+            userId = this.state.userIds.season[place]
+        } else{
+            userId = this.state.userIds.all[place]
+        }
+
         if(userId !== undefined){
             this.props.history.push("/music/user/"+userId)
         }
@@ -107,14 +117,13 @@ class UserLeaderboard extends Component {
             let avatarTemp = JSON.parse(JSON.stringify(this.state.userAvatars));
 
             if(element.classList.contains('active')){
+
                 element.classList.remove('active');
 
                 for (let i = 0; i < avatarTemp.season.length; i++) {
                     if(avatarTemp.season[i].backgroundImage !== avatarTemp.all[i].backgroundImage){
                         avatarTemp.season[i].opacity = "0"
                         avatarTemp.all[i].opacity = "100"
-                        avatarTemp.season[i].pointerEvents = "none"
-                        avatarTemp.all[i].pointerEvents = ""
                     }
                 }
 
@@ -123,6 +132,10 @@ class UserLeaderboard extends Component {
                     userAvatars: avatarTemp
                 })
                 this.generateLeaderboard(0)
+
+                this.setState({
+                    curMode: 0
+                })
             }
             else{
                 element.classList.add('active');
@@ -131,8 +144,6 @@ class UserLeaderboard extends Component {
                     if(avatarTemp.season[i].backgroundImage !== avatarTemp.all[i].backgroundImage){
                         avatarTemp.season[i].opacity = "100"
                         avatarTemp.all[i].opacity = "0"
-                        avatarTemp.all[i].pointerEvents = "none"
-                        avatarTemp.season[i].pointerEvents = ""
                     }
                 }
 
@@ -141,6 +152,11 @@ class UserLeaderboard extends Component {
                     userAvatars: avatarTemp
                 })
                 this.generateLeaderboard(2)
+
+                let curMode = this.state.curSeason
+                this.setState({
+                    curMode
+                })
             } 
         }
 
@@ -158,42 +174,42 @@ class UserLeaderboard extends Component {
                     </div>
                     <div className="userLeaderboard">
                         <div className="leaderboardUser first" style={this.state.heightCalculations[0]} key="first">
-                            <div className="avatar">
-                                <div className="avi all" style={this.state.userAvatars.all[0]} onClick={() => this.userRoute(this.state.userIds.all[0])}></div>
-                                <div className="avi season" style={this.state.userAvatars.season[0]} onClick={() => this.userRoute(this.state.userIds.season[0])}></div>
+                            <div className="avatar" onClick={() => this.userRoute(0)}>
+                                <div className="avi all" style={this.state.userAvatars.all[0]} ></div>
+                                <div className="avi season" style={this.state.userAvatars.season[0]} ></div>
                                 <img src={Crown} alt="crown" className="crown"/>
                             </div>
                             <div className="name">{this.state.leaderboardUsers[0][2]}</div>
                             <div className="votes">{this.state.leaderboardUsers[0][1]}</div>
                         </div>
                         <div className="leaderboardUser second" style={this.state.heightCalculations[1]} key="second">
-                            <div className="avatar">
-                                <div className="avi all" style={this.state.userAvatars.all[1]} onClick={() => this.userRoute(this.state.userIds.all[1])}></div>
-                                <div className="avi season" style={this.state.userAvatars.season[1]} onClick={() => this.userRoute(this.state.userIds.season[1])}></div>
+                            <div className="avatar" onClick={() => this.userRoute(1)}>
+                                <div className="avi all" style={this.state.userAvatars.all[1]} ></div>
+                                <div className="avi season" style={this.state.userAvatars.season[1]} ></div>
                             </div>
                             <div className="name">{this.state.leaderboardUsers[1][2]}</div>
                             <div className="votes">{this.state.leaderboardUsers[1][1]}</div>
                         </div>
                         <div className="leaderboardUser third" style={this.state.heightCalculations[2]} key="third">
-                            <div className="avatar">
-                                <div className="avi all" style={this.state.userAvatars.all[2]} onClick={() => this.userRoute(this.state.userIds.all[2])}></div>
-                                <div className="avi season" style={this.state.userAvatars.season[2]} onClick={() => this.userRoute(this.state.userIds.season[2])}></div>
+                            <div className="avatar" onClick={() => this.userRoute(2)}>
+                                <div className="avi all" style={this.state.userAvatars.all[2]} ></div>
+                                <div className="avi season" style={this.state.userAvatars.season[2]} ></div>
                             </div>
                             <div className="name">{this.state.leaderboardUsers[2][2]}</div>
                             <div className="votes">{this.state.leaderboardUsers[2][1]}</div>
                         </div>
                         <div className="leaderboardUser fourth" style={this.state.heightCalculations[3]} key="fourth">
-                            <div className="avatar">
-                                <div className="avi all" style={this.state.userAvatars.all[3]} onClick={() => this.userRoute(this.state.userIds.all[3])}></div>
-                                <div className="avi season" style={this.state.userAvatars.season[3]} onClick={() => this.userRoute(this.state.userIds.season[3])}></div>
+                            <div className="avatar" onClick={() => this.userRoute(3)}>
+                                <div className="avi all" style={this.state.userAvatars.all[3]} ></div>
+                                <div className="avi season" style={this.state.userAvatars.season[3]}></div>
                             </div>
                             <div className="name">{this.state.leaderboardUsers[3][2]}</div>
                             <div className="votes">{this.state.leaderboardUsers[3][1]}</div>
                         </div>
                         <div className="leaderboardUser fifth" style={this.state.heightCalculations[4]} key="fifth">
-                            <div className="avatar">
-                                <div className="avi all" style={this.state.userAvatars.all[4]} onClick={() => this.userRoute(this.state.userIds.all[4])}></div>
-                                <div className="avi season" style={this.state.userAvatars.season[4]} onClick={() => this.userRoute(this.state.userIds.season[4])}></div>
+                            <div className="avatar" onClick={() => this.userRoute(5)}>
+                                <div className="avi all" style={this.state.userAvatars.all[4]} ></div>
+                                <div className="avi season" style={this.state.userAvatars.season[4]} ></div>
                             </div>
                             <div className="name">{this.state.leaderboardUsers[4][2]}</div>
                             <div className="votes">{this.state.leaderboardUsers[4][1]}</div>

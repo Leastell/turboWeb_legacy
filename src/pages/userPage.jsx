@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getUser, getPlaylist, changeVote } from '../scripts/API'
+import { getUser, changeVote } from '../scripts/API'
 import Track from '../components/track'
 import Loader from '../components/loader'
 
@@ -108,7 +108,7 @@ class userDisplay extends Component {
                             <div className="data">{this.state.votes}</div>
                         </div>
                     </div>
-                    {this.state.items.map(track => <Track key={track.id} trackObj={track} storageFunction={this.updateVote} voteStatus={this.state.storedVotes.includes(track.id)}/>) }
+                    {this.state.items.map(track => <Track key={track.id} trackObj={track} storageFunction={this.updateVote} voteStatus={this.state.storedVotes.includes(track.id)} playlistDate={track.playlistDate}/>) }
                 </div>}
             </div>
         )

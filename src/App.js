@@ -3,7 +3,6 @@ import 'normalize.css';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import datePlaylist from './components/datePlaylist'
-import DiscordButton from './components/discordbutton'
 import Navbar from './components/navbar';
 
 // Pages
@@ -11,8 +10,8 @@ import badRoute from './pages/404';
 import HomePage from './pages/homepage';
 import userPage from './pages/userPage'
 import MusicPage from './pages/musicpage';
-import EventsPage from './pages/eventspage';
-import ConstructionPage from './pages/constructionpage';
+// import EventsPage from './pages/eventspage';
+// import ConstructionPage from './pages/constructionpage';
 import SecretSanta from './pages/secretsantapage';
 
 function App() {

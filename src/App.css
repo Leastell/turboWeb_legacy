@@ -444,6 +444,8 @@ a{
 
 .track_info{
   padding: 5px 10px;
+  position: relative;
+  min-width: 150px;
 }
 
 .track_name, .artist_name{
@@ -453,6 +455,24 @@ a{
   max-width: 40vw;
   line-height: 20px;
 }
+
+.track_name:hover, .artist_name:hover, .track_info .playlist_date:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.artist_name{
+  font-size: 95%;
+  color: rgb(151, 151, 151);
+}
+
+.track_info .playlist_date{
+  font-size: 95%;
+  color: rgb(151, 151, 151);
+  align-self: flex-end;
+  overflow: visible;
+}
+
 .mini_loader{
   padding-top:17vh;
   vertical-align: center;
@@ -464,8 +484,9 @@ a{
   height: 90px;
 }
 
+
 .loader{
-  --loader-size: 250px;
+  --loader-size: 200px;
   position: fixed;
   top: 50vh;
   left: 50vw;
@@ -479,9 +500,9 @@ a{
 
 .loader_text{
   width: var(--loader-size);
-  font-size: 120%;
+  font-size: 110%;
   text-align: center;
-  margin-top: -20px;
+  margin-top: -10px;
 }
 
 .discord_user{
@@ -509,8 +530,8 @@ a{
 }
 
 .vote_button{
-  cursor: pointer;
   margin-left: auto;
+  cursor: pointer;
   padding: 0 20px;
   font-size: 30px;
 }

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import PlaylistIcon from '../components/playlisticon';
+import PlaylistIcon from '../components/playlistIcon';
 import Loader from '../components/loader'
 import { getPlaylists, getPlaylistData } from '../scripts/API'
 import DiscordButton from '../components/discordbutton'
 import ShowcaseIcon from '../components/showcaseicon'
 import UserLeaderboard from '../components/userLeaderboard'
 import Flickity from 'react-flickity-component'
-import { withRouter } from 'react-router-dom';
 
 class MusicPage extends Component {
     state = { 
@@ -21,9 +20,9 @@ class MusicPage extends Component {
         let lastDate = ""
 
         for (const index in fetchedPlaylists) {
-            if(lastDate != fetchedPlaylists[index].substring(0,4)){
+            if(lastDate !== fetchedPlaylists[index].substring(0,4)){
                 let keyval = "divider"+index
-                if(lastDate != ""){
+                if(lastDate !== ""){
                     this.playlistIcons.push(<div className="divider" key={keyval}><span>{lastDate}</span></div>)
                 }
                 lastDate = fetchedPlaylists[index].substring(0,4)

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getThumbnail } from '../scripts/API'
 import { Link } from 'react-router-dom';
 import emptyAlbum from '../img/misc/emptyalbum.png'
-var datejs = require('datejs')
+const datejs = require('datejs')
 
 class PlaylistIcon extends Component {
     state = { 
@@ -55,7 +55,7 @@ class PlaylistIcon extends Component {
 
                         let imgStyle = {}
                         
-                        if(image!="none"){
+                        if(image !== "none"){
                             imgStyle = {
                                 backgroundImage: 'url('+image+')'
                             }
@@ -73,7 +73,7 @@ class PlaylistIcon extends Component {
                 </div>
                 {current ? 
                 <div className="dateIndicator">
-                    Current
+                    This Week
                 </div>: 
                 <div className="dateIndicator">
                     {startDate.toString("MMM dd")} - {endDate.toString("MMM dd")}
