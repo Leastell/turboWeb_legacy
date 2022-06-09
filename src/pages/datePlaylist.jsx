@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getPlaylist, changeVote } from '../scripts/API'
-import Track from './track'
-import Loader from './loader'
+import Track from '../components/track'
+import Loader from '../components/loader'
 
 class datePlaylist extends Component {
     state = { 
@@ -70,14 +70,17 @@ class datePlaylist extends Component {
         endDate = endDate.add(6).day()
 
         return (
-            <div className="playlist">
-                <div className="heading">{startDate.toString("MMM dd")} - {endDate.toString("MMM dd")}</div>
-                {this.state.isLoading ? <Loader /> : 
-                <div>
-                    {this.state.items.map(track => <Track key={track.id} trackObj={track} storageFunction={this.updateVote} voteStatus={this.state.storedVotes.includes(track.id)} />) }
-                </div>}
-            </div>);
-        }
+            <div className="appPad">
+                <div className="playlist">
+                    <div className="heading">{startDate.toString("MMM dd")} - {endDate.toString("MMM dd")}</div>
+                    {this.state.isLoading ? <Loader /> : 
+                    <div>
+                        {this.state.items.map(track => <Track key={track.id} trackObj={track} storageFunction={this.updateVote} voteStatus={this.state.storedVotes.includes(track.id)} />) }
+                    </div>}
+                </div>
+            </div>
+        )
+    }
 }
  
 export default datePlaylist;

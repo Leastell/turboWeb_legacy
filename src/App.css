@@ -1,3 +1,89 @@
+/* Homepage */
+
+.homepage{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  --sidebarWidth: 275px;
+  --forefront: #090909;
+  overflow: hidden;
+}
+
+.homepage > .main{
+  height: 100%;
+  width: 100%;
+}
+
+.homepage .logo{
+  width: 120px;
+  margin: 40px;
+}
+
+.sidebar {
+  background-color: var(--forefront);
+  width: var(--sidebarWidth);
+  overflow-y: auto;
+}
+
+.sidebar .dateLink {
+  cursor: pointer;
+}
+
+.sidebar .dateLink > .date {
+  font-size: 18px;
+  padding: 12px 10px 8px 5px;
+  margin: 0 18px;
+}
+
+.sidebar .dateLink:hover{
+  background-color: #1b1b1b;
+}
+
+.sidebar .divider{
+  position: relative;
+  text-align: center;
+  font-size: 120%;
+  margin: 5px;
+  padding: 12px;
+  border-bottom: 1px solid rgb(55, 55, 55);
+}
+
+.sidebar .divider:first-child{
+  margin-top: 7px;
+}
+
+.cover{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.644) 0%, rgba(0,0,0,0) 10%);
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.leaderContainer{
+  width: 20px;
+}
+
+.contentFlow{
+  height: 100%;
+  width: 86%;
+  margin-left: 9%;
+  overflow-y: auto;
+}
+
+#chromaWaves{
+  enable-background:new 0 0 2318 1221;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* End Homepage */
+
 a{
   text-decoration: none;
   color: white;
@@ -11,8 +97,21 @@ a{
   margin: 0 -20px;
 }
 
-*::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar{
+	width: 5px;
+}
+
+::-webkit-scrollbar-track-piece{
+	background-color: none;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color: #757575;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background-color: #909090;
 }
 
 #Navbar{
@@ -235,12 +334,6 @@ a{
 
 .leaderboardFrame{
   --size: 100px;
-  min-height: 45vh;
-  width: calc( var(--size) * 5 );
-  margin: auto;
-  margin-bottom: 70px;
-  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.89);
-  margin-top: 22px;
   position:relative;
 }
 
